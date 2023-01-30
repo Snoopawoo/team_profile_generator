@@ -16,13 +16,36 @@ const render = require("./src/page-template.js");
 const team = [];
 
 function generateManager() {
-  return inquirer.prompt({
-    name: 'name',
+  return inquirer.prompt([
+    {
+    name: 'Name',
     message: 'Please enter Manager name:',
     // validate: (num) => {
     //   return num > 1 ? true : 'You must enter a number greater than one.';
     // }
-  }).then(data => {
+    },
+    {
+      name: 'Employee ID',
+      message: 'Please enter Employee ID:',
+      // validate: (num) => {
+      //   return num > 1 ? true : 'You must enter a number greater than one.';
+      // }
+    },
+    {
+      name: 'Email address',
+      message: 'Please enter Email address:',
+      // validate: (num) => {
+      //   return num > 1 ? true : 'You must enter a number greater than one.';
+      // }
+    },
+    {
+      name: 'Office number',
+      message: 'Please enter Office number:',
+      // validate: (num) => {
+      //   return num > 1 ? true : 'You must enter a number greater than one.';
+      // }
+    }
+  ]).then(data => {
     team.push({
       type: 'manager',
       data: data
@@ -31,10 +54,33 @@ function generateManager() {
 }
 
 function addEngineer() {
-  return inquirer.prompt({
-    name: 'name',
+  return inquirer.prompt([
+    {
+    name: 'Engineer\'s Name',
     message: 'Please enter the Engineer\'s name.'
-  }).then(//data => 
+    },
+    {
+      name: 'ID',
+      message: 'Please enter ID:',
+      // validate: (num) => {
+      //   return num > 1 ? true : 'You must enter a number greater than one.';
+      // }
+    },
+    {
+      name: 'Email',
+      message: 'Please enter Email:',
+      // validate: (num) => {
+      //   return num > 1 ? true : 'You must enter a number greater than one.';
+      // }
+    },
+    {
+      name: 'GitHub username',
+      message: 'Please enter GitHub username:',
+      // validate: (num) => {
+      //   return num > 1 ? true : 'You must enter a number greater than one.';
+      // }
+    }
+]).then(//data => 
     {
     // team.push({
     //   type: 'engineer',
@@ -45,10 +91,35 @@ function addEngineer() {
 }
 
 function addIntern() {
-  return inquirer.prompt({
-    name: 'name',
+  return inquirer.prompt([
+    {
+    name: 'Intern’s name',
     message: 'Please enter the Intern\'s name.'
-  }).then(//data => 
+   },
+   {
+    name: 'ID',
+    message: 'Please enter ID:',
+    // validate: (num) => {
+    //   return num > 1 ? true : 'You must enter a number greater than one.';
+    // }
+  },
+  {
+    name: 'Email',
+    message: 'Please enter Email:',
+    // validate: (num) => {
+    //   return num > 1 ? true : 'You must enter a number greater than one.';
+    // }
+  },
+  {
+    name: 'School',
+    message: 'Please enter School:',
+    // validate: (num) => {
+    //   return num > 1 ? true : 'You must enter a number greater than one.';
+    // }
+  }
+   
+  
+]).then(//data => 
     {
     // team.push({
     //   type: 'intern',
