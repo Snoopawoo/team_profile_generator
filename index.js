@@ -15,10 +15,10 @@ const render = require("./src/page-template.js");
 
 const team = [];
 
-function generateSSM() {
+function generateManager() {
   return inquirer.prompt({
     name: 'name',
-    message: 'Please enter SSM\'s name.',
+    message: 'Please enter Manager name:',
     // validate: (num) => {
     //   return num > 1 ? true : 'You must enter a number greater than one.';
     // }
@@ -72,7 +72,7 @@ function showMainMenu() {
 function init() {
   console.log('--- Welcome to the Employee Manager App ---');
 
-  generateSSM()
+  generateManager()
     .then(showMainMenu);
 }
 
