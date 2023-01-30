@@ -1,6 +1,6 @@
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+//const Manager = require("./lib/Manager");
+//const Engineer = require("./lib/Engineer");
+//const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -30,50 +30,71 @@ function generateManager() {
   });
 }
 
-function addStudent() {
+function addEngineer() {
   return inquirer.prompt({
     name: 'name',
-    message: 'Please enter the student\'s name.'
-  }).then(data => {
-    team.push({
-      type: 'student',
-      data: new Student('UK10', '02/24/2023', data.name, ['task one'])
-    });
+    message: 'Please enter the Engineer\'s name.'
+  }).then(//data => 
+    {
+    // team.push({
+    //   type: 'engineer',
+    //   data: new Employee('engineer')
+    // });
+    showMenu
   });
 }
 
-function showMainMenu() {
+function addIntern() {
+  return inquirer.prompt({
+    name: 'name',
+    message: 'Please enter the Intern\'s name.'
+  }).then(//data => 
+    {
+    // team.push({
+    //   type: 'intern',
+    //   data: new Employee('engineer')
+    // });
+    showMenu
+  });
+}
+
+function showMenu() {
   return inquirer.prompt({
     type: 'list',
     name: 'option',
     message: 'Please choose an option.',
     choices: [
       {
-        name: 'Add a student',
-        value: 'student'
+        name: 'Add an Engineer',
+        value: 'engineer'
       },
       {
-        name: 'Exit the Course Manager',
-        value: 'exit'
+        name: 'Add an Intern',
+        value: 'intern'
+      },
+      {
+        name: 'Finish building the team',
+        value: 'fin'
       }
     ]
   }).then(choice => {
-    if (choice.option === 'student') {
-      return addStudent()
-        .then(showMainMenu);
-    }
-
-    console.log('Thanks for using our app!');
-    console.log(team);
+    if (choice.option === 'engineer') {
+      return addEngineer()
+        .then(showMenu);
+      }
+     else if (choice.option === 'intern') {
+      return addIntern()
+        .then(showMenu)
+     }
     process.exit();
   })
 }
 
 function init() {
-  console.log('--- Welcome to the Employee Manager App ---');
+  console.log('____Employee managment app____');
 
   generateManager()
-    .then(showMainMenu);
+    .then(showMenu);
 }
 
 init();
