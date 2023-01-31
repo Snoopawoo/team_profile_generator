@@ -162,7 +162,7 @@ function showMenu() {
 }
 
 function init() {
-  console.log('____Employee managment app____');
+  console.log('----Employee managment app----');
 
   generateManager()
     .then(showMenu);
